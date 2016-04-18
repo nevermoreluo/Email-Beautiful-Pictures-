@@ -2,10 +2,6 @@
 
 #_author = Nevermore_luo
 
-
-
-
-
 #收件人邮箱地址，群发请用逗号隔开,ex: 'xxxx@qq.com,zzz@126.com' 
 To = ''
 #发件人邮箱地址 

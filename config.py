@@ -22,3 +22,8 @@ Picture_quantity = 10
 Save_pic = True
 #保存位置(请务必保留引号前面的r) 
 Dirname = r'c:\xxx'
+
+#由衷的希望你不要用到下面这个选项，但是当我们的脚本返回一个RuntimeError的时候，你就需要考虑这个选项了
+#找到与你本机相符的恰当的BeautifulSoup的解析器，'lxml','html.parser','xml','html5lib',推荐使用'lxml'
+#详情http://beautifulsoup.readthedocs.org/zh_CN/latest/
+Features = ''

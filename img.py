@@ -110,7 +110,7 @@ class Img(object):
         for a,b in enumerate(url_list):
             soup = simple_soup(b,cookies=self.cookies)
             item_id = ''.join(('item_d_',b.split('/')[-1]))
-            print b
+            print(b)
             png = soup.find('img',{'id':item_id})['src']
             self.png_urls.append(png)
         return self.png_urls

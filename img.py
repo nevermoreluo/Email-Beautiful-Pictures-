@@ -145,7 +145,8 @@ class Img(object):
         #download
         for n,png in enumerate(self.png_urls):
             path = os.path.join(name,'%s.png'%(n+1))
-            urllib.urlretrieve(png,path)
+            fp = requests.get(png,stream=True).content
+            with open(path,'wb') as f:f.write(fp)
         
         
     def img_del(self,name):

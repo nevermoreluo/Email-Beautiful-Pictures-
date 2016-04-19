@@ -8,7 +8,7 @@ import urllib
 from PIL import Image
 import os
 import datetime
-
+from config import Features
 
 def simple_soup(url,cookies=None,timeout=0.001,retry_count=3,features=''):
     '''

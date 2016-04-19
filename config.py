@@ -11,6 +11,8 @@ Password='546546'
 #发件人邮箱的SMTP服务器地址 
 #126:'smtp.126.com'\163:'smtp.163.com'\qq:'smtp.qq.com'\sina:'smtp.sina.com'\gmail:'smtp.gmail.com' 
 SMTPServer='smtp.126.com'
+#邮件标题，适当修改标题，有些标题会被系统判定为垃圾邮件
+title = 'Pictures'
 #服务器端口 
 SMTPPort=25
 

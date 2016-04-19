@@ -10,12 +10,16 @@ import os
 import datetime
 
 
-def simple_soup(url,cookies=None,timeout=0.001,retry_count=3):
+def simple_soup(url,cookies=None,timeout=0.001,retry_count=3,features=''):
     '''
     url->str:accord with URL standards
     cookies->dict: give cookies if necessary
     timeout->float: avoid the tragedy 's happening again 
     retry_count->int:repeat times if failed
+    features->str:'lxml','html.parser','xml','html5lib'
+    normally we don't need it,unless bs4 get many features and raise an error
+    you can solve it with this kw
+    
     return->soup if succeed
     
     use requests,bs4 to read HTML,lazy soup for me :)
@@ -32,8 +36,8 @@ def simple_soup(url,cookies=None,timeout=0.001,retry_count=3):
             session = requests.session()
             session.headers['User-Agent'] = user_agent
             html = session.get(url,cookies=cookies).content
-            #normally we dont use this('html.parser'),unless system install two version bs4
-            soup = BeautifulSoup(html,'html.parser')
+            #normally we dont use this('lxml'),unless system install two version bs4
+            soup = BeautifulSoup(html,features)
         except:
             soup = None
         if soup:
@@ -42,6 +46,7 @@ def simple_soup(url,cookies=None,timeout=0.001,retry_count=3):
         print('Alreadly try %s times,but failed, url:%s...'%(i,url))
         #take a break
         time.sleep(timeout)
+    raise RuntimeError('Please check your URL or BeautifulSoup...')
 
 
 class Img(object):
@@ -81,7 +86,7 @@ class Img(object):
     
     
     def _img_url_seach(self,url):
-        soup = simple_soup(url,cookies=self.cookies)
+        soup = simple_soup(url,cookies=self.cookies,features=Features)
         #get item_id from topit
         temp = [i.img['id'].split('_')[-1] 
                 for i in soup.find_all('div',{'class':'e m'})]
@@ -108,7 +113,7 @@ class Img(object):
         self.png_urls = []
         #get pictures urls
         for a,b in enumerate(url_list):
-            soup = simple_soup(b,cookies=self.cookies)
+            soup = simple_soup(b,cookies=self.cookies,features=Features)
             item_id = ''.join(('item_d_',b.split('/')[-1]))
             print(b)
             png = soup.find('img',{'id':item_id})['src']

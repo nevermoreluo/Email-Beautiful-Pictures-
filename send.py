@@ -22,7 +22,7 @@ def send_pic():
     t = ''.join('<p><img src="%s"></p>'%i for i in urls)
     html = '<html><body><h1>Porn</h1>%s</body></html>'%t
     m = mail.Mail(To,From,Password,SMTPServer,SMTPPort)
-    m.make_message(html,Type='html')
+    m.make_message(html,Type='html',Subject=title)
     m.send()
 
 if __name__ == '__main__':

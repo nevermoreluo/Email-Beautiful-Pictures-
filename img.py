@@ -32,8 +32,8 @@ def simple_soup(url,cookies=None,timeout=0.001,retry_count=3):
             session = requests.session()
             session.headers['User-Agent'] = user_agent
             html = session.get(url,cookies=cookies).content
-            #normally we dont use this('lxml'),unless system install two version bs4
-            soup = BeautifulSoup(html,'lxml')
+            #normally we dont use this('html.parser'),unless system install two version bs4
+            soup = BeautifulSoup(html,'html.parser')
         except:
             soup = None
         if soup:

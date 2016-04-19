@@ -1,15 +1,18 @@
 
 github第一发 :)
+
 欢迎指正。
 thx:frokaikan
 
-python2脚本
+python版本2.x,3.x兼容
+
 库依赖:requests，bs4，PIL
+
 功能:发送美图电子邮件给好友
 
 
 
-所有设置选项均填制在config.py内，
+所有设置选项均填制在config.py内
 设置包含：
 
 必填项：
@@ -21,6 +24,7 @@ python2脚本
 美图的数量:Picture_quantity
 是否保存图片到本地，True保存，False不保存:Save_pic
 保存图片的文件夹位置:Dirname
+
 所有设置填写好后，执行send.py即可收到邮件了哟
 
 
